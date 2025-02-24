@@ -1,5 +1,6 @@
-// login.spec.js
+// login.setup.ts
 
+import { STORAGE_STATE } from "../../playwright.config"; // STORAGE_STATE = "./auth/session.json"
 import { test } from "../fixtures";
 
 test.describe("Login page", () => {
@@ -13,5 +14,6 @@ test.describe("Login page", () => {
       password: "welcome",
       username: "Oliver Smith",
     });
+    await page.context().storageState({ path: STORAGE_STATE });
   });
 });
